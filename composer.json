@@ -1,0 +1,27 @@
+{
+    "name": "andreaslindeboom/booster",
+    "description": "Flexible PHP code generation tool",
+    "keywords": ["code generator", "generator", "booster"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Lindeboom",
+            "email": "a.s.lindeboom@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["spec/Data"],
+        "psr-0": {"": "src"}
+    },
+    "require": {
+        "league/flysystem": "0.3.*",
+        "mustache/mustache": "dev-dev",
+        "doctrine/inflector": "1.0.*@dev"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+    "config": {
+    },
+    "minimum-stability": "stable"
+}
