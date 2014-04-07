@@ -20,15 +20,25 @@ class ConfigSpecData
 EOT;
     }
 
+    static function getSimpleRenderedJson($studlyCasedEntity) {
+        return <<<EOT
+{
+    "templates": [
+        {
+            "templateFile": "service.mustache",
+            "targetDirectory": "app/{$studlyCasedEntity}s",
+            "targetFile": "{$studlyCasedEntity}Service.php"
+        }
+    ]
+}
+EOT;
+    }
+
+    /**
+     * @return TemplateConfiguration[]
+     */
     static function getSimpleConfig() {
-        $inflections = [
-            'StudlyCasedEntity' => 'ProspectiveCustomer',
-            'StudlyCasedEntities' => 'ProspectiveCustomers',
-            'camelCasedEntity' => 'prospectiveCustomer',
-            'camelCasedEntities' => 'prospectiveCustomers',
-            'snake_cased_entity' => 'prospective_customer',
-            'snake_cased_entities' => 'prospective_customers',
-        ];
+        $inflections = self::getSimpleInflections();
 
         $singleConfig = new TemplateConfiguration(
             'service.mustache',
@@ -38,6 +48,23 @@ EOT;
         $singleConfig->setTargetDirectory('app/' . 'ProspectiveCustomers');
 
         return [$singleConfig];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getSimpleInflections()
+    {
+        $inflections = [
+            'StudlyCasedEntity' => 'ProspectiveCustomer',
+            'StudlyCasedEntities' => 'ProspectiveCustomers',
+            'camelCasedEntity' => 'prospectiveCustomer',
+            'camelCasedEntities' => 'prospectiveCustomers',
+            'snake_cased_entity' => 'prospective_customer',
+            'snake_cased_entities' => 'prospective_customers',
+        ];
+
+        return $inflections;
     }
 
 }
