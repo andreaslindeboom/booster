@@ -32,28 +32,26 @@ class JsonConfigParserSpec extends ObjectBehavior
             ->willReturn(ConfigSpecData::getSimpleRenderedJson('ProspectiveCustomer'));
 
         $this->beConstructedWith($inflector, $renderer);
-
     }
 
     public function getMatchers()
     {
         return [
             'returnArrayLike' => function ($subject, $subjectTwo) {
-                    if (! (is_array($subject) && is_array($subjectTwo))) {
-                        return false;
-                    }
-
-                    $isLike = true;
-
-                    foreach ($subject as $index => $element) {
-                        if ($element != $subjectTwo[$index]) {
-                            $isLike = false;
-                        }
-                    }
-
-                    return $isLike;
+                if (! (is_array($subject) && is_array($subjectTwo))) {
+                    return false;
                 }
+
+                $isLike = true;
+
+                foreach ($subject as $index => $element) {
+                    if ($element != $subjectTwo[$index]) {
+                        $isLike = false;
+                    }
+                }
+
+                return $isLike;
+            }
         ];
     }
-
 }
