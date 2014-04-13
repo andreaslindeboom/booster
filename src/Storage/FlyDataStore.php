@@ -2,7 +2,7 @@
 
 namespace Storage;
 
-use League\Flysystem\Filesystem;
+use League\Flysystem\Filesystem as FlySystem;
 
 class FlyDataStore implements DataStore
 {
@@ -13,7 +13,7 @@ class FlyDataStore implements DataStore
     private $filesystem;
     private $extension = 'json';
 
-    function __construct(Filesystem $filesystem)
+    function __construct(FlySystem $filesystem)
     {
         $this->filesystem = $filesystem;
     }

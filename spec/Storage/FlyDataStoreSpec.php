@@ -2,7 +2,7 @@
 
 namespace spec\Storage;
 
-use League\Flysystem\Filesystem;
+use League\Flysystem\Filesystem as FlySystem;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -13,14 +13,14 @@ class FlyDataStoreSpec extends ObjectBehavior
         $this->shouldHaveType('Storage\FlyDataStore');
     }
 
-    function it_should_request_data_from_filesystem(Filesystem $filesystem)
+    function it_should_request_data_from_filesystem(FlySystem $filesystem)
     {
         $filesystem->read('booster.json')->shouldBeCalled();
 
         $this->getByName('booster');
     }
 
-    function let(Filesystem $filesystem)
+    function let(FlySystem $filesystem)
     {
         $this->beConstructedWith($filesystem);
     }
