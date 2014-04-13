@@ -1,5 +1,5 @@
 <?php
- /**
+/**
  * Part of Booster.
  *
  * @author     Andreas Lindeboom
@@ -8,33 +8,57 @@
  * @link       http://github.com/andreaslindeboom
  */
 
-
 namespace Config;
 
+/**
+ * Class TemplateConfiguration
+ * @package Config
+ * @property string targetDirectory
+ * @property string targetFile
+ * @property string templateFile
+ * @property string inflections
+ */
+class TemplateConfiguration
+{
 
-class TemplateConfiguration {
-
-    private $templateFile;
-    private $targetFile;
-    private $targetDirectory;
-    private $inflections;
+    private $properties;
 
     function __construct($templateFile, $targetFile, $inflections)
     {
-        $this->targetFile = $targetFile;
-        $this->templateFile = $templateFile;
-        $this->inflections = $inflections;
+        $this->properties['targetFile'] = $targetFile;
+        $this->properties['templateFile'] = $templateFile;
+        $this->properties['inflections'] = $inflections;
+    }
+
+    public function __get($propertyName)
+    {
+        if (! isset($this->properties[$propertyName])) {
+            throw new \Exception("Undefined property $propertyName.");
+        }
+
+        return $this->properties[$propertyName];
     }
 
     public function setTargetDirectory($directory)
     {
-        if (isset($this->targetDirectory)) {
+        if (isset($this->properties['targetDirectory'])) {
             throw new \Exception('Target directory can not be set twice.');
         }
 
-        $this->targetDirectory = $directory;
+        $this->properties['targetDirectory'] = $this->ensureHasTrailingSlash($directory);
     }
 
+    public function getTargetPath()
+    {
+        if (! isset ($this->properties['targetDirectory'])) {
+            return $this->templateFile;
+        }
 
+        return $this->targetDirectory . $this->targetFile;
+    }
+
+    public function ensureHasTrailingSlash($subject){
+        return preg_replace('{/$}', '', $subject) . '/';
+    }
 
 }
