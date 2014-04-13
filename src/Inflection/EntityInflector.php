@@ -11,5 +11,7 @@ namespace Inflection;
 
 interface EntityInflector
 {
+
     public function generateInflections($name);
+
 }

@@ -11,7 +11,9 @@ namespace Rendering;
 
 interface Renderer
 {
+
     public function render($template, $data);
 
     public function renderFromFile($templatePath, $data);
+
 }
