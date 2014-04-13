@@ -18,7 +18,7 @@ class JsonConfigParserSpec extends ObjectBehavior
     function it_should_parse_json_to_a_template_configuration_object()
     {
         $jsonConfig = ConfigSpecData::getSimpleJson();
-        $templateConfigurations = ConfigSpecData::getSimpleConfig();
+        $templateConfigurations = ConfigSpecData::getSimpleConfigCollection();
         $this->parse($jsonConfig, 'prospective customer')
             ->shouldReturnArrayLike($templateConfigurations);
     }

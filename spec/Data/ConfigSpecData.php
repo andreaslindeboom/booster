@@ -37,7 +37,17 @@ EOT;
     /**
      * @return TemplateConfiguration[]
      */
-    static function getSimpleConfig() {
+    static function getSimpleConfigCollection() {
+        $singleConfig = self::getSimpleConfig();
+
+        return [$singleConfig];
+    }
+
+    /**
+     * @return TemplateConfiguration
+     */
+    public static function getSimpleConfig()
+    {
         $inflections = self::getSimpleInflections();
 
         $singleConfig = new TemplateConfiguration(
@@ -47,7 +57,7 @@ EOT;
         );
         $singleConfig->setTargetDirectory('app/' . 'ProspectiveCustomers');
 
-        return [$singleConfig];
+        return $singleConfig;
     }
 
     /**
@@ -66,5 +76,4 @@ EOT;
 
         return $inflections;
     }
-
 }
