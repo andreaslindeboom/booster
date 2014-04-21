@@ -38,7 +38,7 @@ class JsonConfigParser implements ConfigParser
             $parsedData,
             $inflections
         );
-
+        
         return $templateConfigurations;
     }
 
@@ -53,18 +53,43 @@ class JsonConfigParser implements ConfigParser
 
         foreach ($parsedData->templates as $template) {
 
-            $templateConfiguration = new TemplateConfiguration(
-                $template->templateFile,
-                $template->targetFile,
-                $inflections
+            $templateConfiguration = $this->createTemplateConfiguration(
+                $parsedData,
+                $inflections,
+                $template
             );
-
-            $templateConfiguration->setTargetDirectory($template->targetDirectory);
 
             $templateConfigurations[] = $templateConfiguration;
 
         }
 
         return $templateConfigurations;
+    }
+
+    /**
+     * @param $parsedData
+     * @param $inflections
+     * @param $template
+     * @return TemplateConfiguration
+     */
+    public function createTemplateConfiguration($parsedData, $inflections, $template)
+    {
+        $templateConfiguration = new TemplateConfiguration(
+            $template->templateFile,
+            $template->targetFile,
+            $inflections
+        );
+
+        if (isset($parsedData->templateDirectory)) {
+            $templateConfiguration->setTemplateDirectory(
+                $parsedData->templateDirectory
+            );
+        }
+
+        $templateConfiguration->setTargetDirectory(
+            $template->targetDirectory
+        );
+
+        return $templateConfiguration;
     }
 }

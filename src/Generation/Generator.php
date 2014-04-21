@@ -32,10 +32,10 @@ class Generator
     public function run()
     {
         $renderedTemplate = $this->renderer->renderFromFile(
-            $this->templateConfiguration->templateFile,
+            $this->templateConfiguration->getTemplatePath(),
             $this->templateConfiguration->inflections
         );
-
+        
         $this->fileSystem->write(
             $this->templateConfiguration->getTargetPath(),
             $renderedTemplate

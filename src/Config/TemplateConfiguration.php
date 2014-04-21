@@ -13,9 +13,10 @@ namespace Booster\Config;
 /**
  * Class TemplateConfiguration
  * @package Config
- * @property string targetDirectory
  * @property string targetFile
+ * @property string targetDirectory
  * @property string templateFile
+ * @property string templateDirectory
  * @property string inflections
  */
 class TemplateConfiguration
@@ -48,13 +49,29 @@ class TemplateConfiguration
         $this->properties['targetDirectory'] = $this->ensureHasTrailingSlash($directory);
     }
 
+    public function setTemplateDirectory($directory){
+        if (isset($this->properties['templateDirectory'])) {
+            throw new \Exception('Template directory can not be set twice.');
+        }
+
+        $this->properties['templateDirectory'] = $this->ensureHasTrailingSlash($directory);
+    }
+
     public function getTargetPath()
     {
         if (! isset ($this->properties['targetDirectory'])) {
-            return $this->templateFile;
+            return $this->targetFile;
         }
 
         return $this->targetDirectory . $this->targetFile;
+    }
+
+    public function getTemplatePath(){
+        if (! isset ($this->properties['templateDirectory'])) {
+            return $this->templateFile;
+        }
+
+        return $this->templateDirectory . $this->templateFile;
     }
 
     public function ensureHasTrailingSlash($subject){

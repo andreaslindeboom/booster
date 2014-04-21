@@ -23,6 +23,14 @@ class JsonConfigParserSpec extends ObjectBehavior
             ->shouldReturnArrayLike($templateConfigurations);
     }
 
+    function it_should_get_template_directory_from_config()
+    {
+        $jsonConfig = ConfigSpecData::getJsonWithTemplateDir();
+        $templateConfigurations = ConfigSpecData::getConfigCollectionWithTemplateDir();
+        $this->parse($jsonConfig, 'prospective customer')
+            ->shouldReturnArrayLike($templateConfigurations);
+    }
+
     function let(EntityInflector $inflector, Renderer $renderer)
     {
         $inflector->generateInflections('prospective customer')
@@ -30,6 +38,9 @@ class JsonConfigParserSpec extends ObjectBehavior
 
         $renderer->render(ConfigSpecData::getSimpleJson(), ConfigSpecData::getSimpleInflections())
             ->willReturn(ConfigSpecData::getSimpleRenderedJson('ProspectiveCustomer'));
+
+        $renderer->render(ConfigSpecData::getJsonWithTemplateDir(), ConfigSpecData::getSimpleInflections())
+            ->willReturn(ConfigSpecData::getRenderedJsonWithTemplateDir('ProspectiveCustomer'));
 
         $this->beConstructedWith($inflector, $renderer);
     }
