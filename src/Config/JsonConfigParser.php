@@ -38,7 +38,7 @@ class JsonConfigParser implements ConfigParser
             $parsedData,
             $inflections
         );
-        
+
         return $templateConfigurations;
     }
 
@@ -60,10 +60,9 @@ class JsonConfigParser implements ConfigParser
             );
 
             $templateConfigurations[] = $templateConfiguration;
-
         }
 
-        return $templateConfigurations;
+        return new TemplateConfigurations($templateConfigurations);
     }
 
     /**

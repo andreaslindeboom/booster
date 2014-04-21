@@ -20,7 +20,7 @@ class JsonConfigParserSpec extends ObjectBehavior
         $jsonConfig = ConfigSpecData::getSimpleJson();
         $templateConfigurations = ConfigSpecData::getSimpleConfigCollection();
         $this->parse($jsonConfig, 'prospective customer')
-            ->shouldReturnArrayLike($templateConfigurations);
+            ->shouldBeLike($templateConfigurations);
     }
 
     function it_should_get_template_directory_from_config()
@@ -28,7 +28,7 @@ class JsonConfigParserSpec extends ObjectBehavior
         $jsonConfig = ConfigSpecData::getJsonWithTemplateDir();
         $templateConfigurations = ConfigSpecData::getConfigCollectionWithTemplateDir();
         $this->parse($jsonConfig, 'prospective customer')
-            ->shouldReturnArrayLike($templateConfigurations);
+            ->shouldBeLike($templateConfigurations);
     }
 
     function let(EntityInflector $inflector, Renderer $renderer)
@@ -43,26 +43,5 @@ class JsonConfigParserSpec extends ObjectBehavior
             ->willReturn(ConfigSpecData::getRenderedJsonWithTemplateDir('ProspectiveCustomer'));
 
         $this->beConstructedWith($inflector, $renderer);
-    }
-
-    public function getMatchers()
-    {
-        return [
-            'returnArrayLike' => function ($subject, $subjectTwo) {
-                if (! (is_array($subject) && is_array($subjectTwo))) {
-                    return false;
-                }
-
-                $isLike = true;
-
-                foreach ($subject as $index => $element) {
-                    if ($element != $subjectTwo[$index]) {
-                        $isLike = false;
-                    }
-                }
-
-                return $isLike;
-            }
-        ];
     }
 }

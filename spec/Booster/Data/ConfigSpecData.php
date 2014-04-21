@@ -3,6 +3,7 @@
 namespace spec\Booster\Data;
 
 use Booster\Config\TemplateConfiguration;
+use Booster\Config\TemplateConfigurations;
 
 class ConfigSpecData
 {
@@ -70,7 +71,7 @@ EOT;
     static function getSimpleConfigCollection() {
         $singleConfig = self::getSimpleConfig();
 
-        return [$singleConfig];
+        return new TemplateConfigurations([$singleConfig]);
     }
 
     /**
@@ -79,7 +80,7 @@ EOT;
     static function getConfigCollectionWithTemplateDir() {
         $singleConfig = self::getConfigWithTemplateDir();
 
-        return [$singleConfig];
+        return new TemplateConfigurations([$singleConfig]);
     }
 
     /**
