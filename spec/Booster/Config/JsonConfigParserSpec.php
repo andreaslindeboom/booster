@@ -1,18 +1,18 @@
 <?php
 
-namespace spec\Config;
+namespace spec\Booster\Config;
 
-use Inflection\EntityInflector;
+use Booster\Inflection\EntityInflector;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Rendering\Renderer;
-use spec\Data\ConfigSpecData;
+use Booster\Rendering\Renderer;
+use spec\Booster\Data\ConfigSpecData;
 
 class JsonConfigParserSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Config\ConfigParser');
+        $this->shouldHaveType('Booster\Config\ConfigParser');
     }
 
     function it_should_parse_json_to_a_template_configuration_object()

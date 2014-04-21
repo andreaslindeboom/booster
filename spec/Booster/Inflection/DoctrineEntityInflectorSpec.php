@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Inflection;
+namespace spec\Booster\Inflection;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use spec\Data\ConfigSpecData;
+use spec\Booster\Data\ConfigSpecData;
 
 class DoctrineEntityInflectorSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Inflection\DoctrineEntityInflector');
+        $this->shouldHaveType('Booster\Inflection\DoctrineEntityInflector');
     }
 
     function it_should_inflect_a_space_separated_entity()

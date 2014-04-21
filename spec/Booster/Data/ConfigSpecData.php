@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Data;
+namespace spec\Booster\Data;
 
-use Config\TemplateConfiguration;
+use Booster\Config\TemplateConfiguration;
 
 class ConfigSpecData
 {

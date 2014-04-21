@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Storage;
+namespace spec\Booster\Storage;
 
 use League\Flysystem\Filesystem as FlySystem;
 use PhpSpec\ObjectBehavior;
@@ -10,7 +10,7 @@ class FlyFileSystemSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Storage\FlyFileSystem');
+        $this->shouldHaveType('Booster\Storage\FlyFileSystem');
     }
 
     function it_should_save_data_to_filesystem(FlySystem $filesystem)

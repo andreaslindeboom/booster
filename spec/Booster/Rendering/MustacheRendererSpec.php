@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Rendering;
+namespace spec\Booster\Rendering;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class MustacheRendererSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Rendering\MustacheRenderer');
+        $this->shouldHaveType('Booster\Rendering\MustacheRenderer');
     }
 
     function it_should_load_template_from_file(\Mustache_Engine $engine)

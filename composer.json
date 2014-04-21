@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "classmap": ["spec/Data"],
+        "classmap": ["spec/Booster/Data"],
         "psr-4": {"Booster\\": "src/"}
     },
     "require": {

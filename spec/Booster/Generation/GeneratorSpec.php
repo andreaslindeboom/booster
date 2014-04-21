@@ -1,19 +1,19 @@
 <?php
 
-namespace spec\Generation;
+namespace spec\Booster\Generation;
 
-use Config\TemplateConfiguration;
+use Booster\Config\TemplateConfiguration;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Rendering\Renderer;
-use spec\Data\ConfigSpecData;
-use Storage\FileSystem;
+use Booster\Rendering\Renderer;
+use spec\Booster\Data\ConfigSpecData;
+use Booster\Storage\FileSystem;
 
 class GeneratorSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Generation\Generator');
+        $this->shouldHaveType('Booster\Generation\Generator');
     }
 
     function it_should_invoke_the_renderer_to_render_a_template(Renderer $renderer)
