@@ -1,0 +1,15 @@
+{
+    "templateDirectory": "templates",
+    "templates": [
+        {
+            "templateFile": "repository",
+            "targetFile" : "{{camelCasedEntity}}Repository.php",
+            "targetDirectory": "application/src/{{StudlyCasedEntities}}"
+        },
+        {
+            "templateFile": "collection",
+            "targetFile" : "{{camelCasedEntity}}Collection.php",
+            "targetDirectory": "application/src/{{StudlyCasedEntities}}"
+        }
+    ]
+}

@@ -16,7 +16,8 @@
     "require": {
         "league/flysystem": "0.3.*",
         "mustache/mustache": "dev-dev",
-        "doctrine/inflector": "1.0.*@dev"
+        "doctrine/inflector": "1.0.*@dev",
+        "symfony/console": "2.5.*@dev"
     },
     "require-dev": {
         "phpspec/phpspec": "2.0.*@dev"
