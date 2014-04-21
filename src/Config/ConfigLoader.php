@@ -1,8 +1,8 @@
 <?php
 
-namespace Config;
+namespace Booster\Config;
 
-use Storage\DataStore;
+use Booster\Storage\DataStore;
 
 class ConfigLoader
 {

@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "classmap": ["spec/Data"],
-        "psr-0": {"": "src"}
+        "psr-4": {"Booster\\": "src/"}
     },
     "require": {
         "league/flysystem": "0.3.*",

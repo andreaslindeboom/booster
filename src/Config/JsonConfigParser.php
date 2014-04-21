@@ -1,9 +1,9 @@
 <?php
 
-namespace Config;
+namespace Booster\Config;
 
-use Rendering\Renderer;
-use Inflection\EntityInflector;
+use Booster\Rendering\Renderer;
+use Booster\Inflection\EntityInflector;
 
 class JsonConfigParser implements ConfigParser
 {

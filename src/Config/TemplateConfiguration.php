@@ -8,7 +8,7 @@
  * @link       http://github.com/andreaslindeboom
  */
 
-namespace Config;
+namespace Booster\Config;
 
 /**
  * Class TemplateConfiguration

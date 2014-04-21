@@ -1,6 +1,6 @@
 <?php
 
-namespace Rendering;
+namespace Booster\Rendering;
 
 class MustacheRenderer implements Renderer
 {

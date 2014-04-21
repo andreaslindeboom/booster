@@ -1,6 +1,6 @@
 <?php
 
-namespace Config;
+namespace Booster\Config;
 
 interface ConfigParser
 {

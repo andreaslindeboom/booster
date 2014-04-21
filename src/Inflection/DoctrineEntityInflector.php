@@ -1,6 +1,6 @@
 <?php
 
-namespace Inflection;
+namespace Booster\Inflection;
 
 use Doctrine\Common\Inflector\Inflector;
 

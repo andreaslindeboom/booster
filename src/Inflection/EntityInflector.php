@@ -7,7 +7,7 @@
  * @copyright  2014 Andreas Lindeboom
  * @link       http://github.com/andreaslindeboom
  */
-namespace Inflection;
+namespace Booster\Inflection;
 
 interface EntityInflector
 {

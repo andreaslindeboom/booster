@@ -1,10 +1,10 @@
 <?php
 
-namespace Generation;
+namespace Booster\Generation;
 
-use Config\TemplateConfiguration;
-use Rendering\Renderer;
-use Storage\FileSystem;
+use Booster\Config\TemplateConfiguration;
+use Booster\Rendering\Renderer;
+use Booster\Storage\FileSystem;
 
 class Generator
 {

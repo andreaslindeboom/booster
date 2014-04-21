@@ -1,6 +1,6 @@
 <?php
 
-namespace Storage;
+namespace Booster\Storage;
 
 use League\Flysystem\Filesystem as FlySystem;
 

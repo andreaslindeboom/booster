@@ -8,7 +8,7 @@
  * @link       http://github.com/andreaslindeboom
  */
 
-namespace Storage;
+namespace Booster\Storage;
 
 interface DataStore {
 

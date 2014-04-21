@@ -7,7 +7,7 @@
  * @copyright  2014 Andreas Lindeboom
  * @link       http://github.com/andreaslindeboom
  */
-namespace Rendering;
+namespace Booster\Rendering;
 
 interface Renderer
 {
